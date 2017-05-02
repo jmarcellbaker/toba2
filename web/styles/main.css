@@ -1,0 +1,151 @@
+/* 
+    Created on : Mar 24, 2017, 10:24:46 PM
+    Author     : Jeremy M. Baker
+*/
+
+header {
+    color: whitesmoke;
+    background-color: #0A2351;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+    font-size: 18px;
+    background-color: #ffbd4a;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 5px;
+    float: none;
+}
+
+nav ul a {
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+section {
+    padding-bottom: 375px;
+}
+
+footer {
+    color: whitesmoke;
+    background-color: #0A2351;
+    text-align: center;
+    padding: 40px;
+}
+
+form {
+    display: block;
+    width: 300px;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+input[type=text], input[type=password], input[type=email], select {
+    width: 300px;
+    padding: 15px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 300px;
+    background-color: #0A2351;
+    color: whitesmoke;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #0A2351;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-style: italic;
+}
+
+.successLabel {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 3;
+}
+
+span {
+    font-size: 20px;
+    padding: 5px 5px;
+        
+}
+
+.loginDetails {
+    font-weight: bold;
+    text-align: right;
+    font-size: 20px;
+    background-color: #ffbd4a;     
+}
+
+.center {
+    margin: auto;
+    width: 19%;
+    padding: 5px;
+}
+
+.welcome {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+table {
+    display: table;
+    border-spacing: 2px;
+    padding-top: 30px;
+}
+
+th, td {
+    border: 1px solid BLACK;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+caption {
+    font-size: 20px;
+    text-decoration: underline;
+    padding-top: 20px;
+    
+}
+
+img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
