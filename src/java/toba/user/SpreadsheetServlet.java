@@ -61,7 +61,11 @@ public class SpreadsheetServlet extends HttpServlet {
             ConnectionPool pool = ConnectionPool.getInstance();
             Connection connection = pool.getConnection();
             Statement statement = connection.createStatement();
-            String query = "SELECT * FROM User";    
+            String query = "select * \n" +
+"                    from user \n" +
+"                    where year(registrationdate) = year(current_date()) \n" +
+"                    and month(registrationdate) = month(current_date())";  
+            
             ResultSet results = statement.executeQuery(query);
             
             // create the spreadsheet rows

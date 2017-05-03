@@ -1,3 +1,5 @@
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,31 +32,37 @@
                     <th>State</th>
                     <th>Zip Code</th>
                     <th>Email</th>
-                    <th>Password</th>
-                    <th>Salt</th>
+               <!-- <th>Password</th> 
+                    <th>Salt</th> -->
                     <th>Registration Date</th>
                 </tr>
-                <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                <c:forEach var="user" items="${users}">
+                <sql:query var="rs" dataSource="jdbc/toba">
+                    select * 
+                    from user 
+                    where year(registrationdate) = year(current_date()) 
+                    and month(registrationdate) = month(current_date()) 
+                </sql:query>
+                    
+                <c:forEach var="row" items="${rs.rows}">
                 <tr>
-                    <td> ${user.userName} </td>
-                    <td> ${user.firstName} </td>
-                    <td> ${user.lastName} </td>
-                    <td> ${user.phone} </td>
-                    <td> ${user.address} </td>
-                    <td> ${user.city} </td>
-                    <td> ${user.state} </td>
-                    <td> ${user.zipCode} </td>
-                    <td> ${user.email} </td>
-                    <td> ${user.password} </td>
-                    <td> ${user.salt} </td> 
-                    <td> ${user.registrationDate} </td> 
+                    <td> ${row.userName} </td>
+                    <td> ${row.firstName} </td>
+                    <td> ${row.lastName} </td>
+                    <td> ${row.phone} </td>
+                    <td> ${row.address} </td>
+                    <td> ${row.city} </td>
+                    <td> ${row.state} </td>
+                    <td> ${row.zipCode} </td>
+                    <td> ${row.email} </td>
+                <!--<td> ${row.password} </td>
+                    <td> ${row.salt} </td> -->
+                    <td> ${row.registrationDate} </td> 
                 </tr>
                 </c:forEach>
             </table>
                 <br>
                 <br>
-            <a href="Spreadsheet">Download</a>
+            <a href="../Spreadsheet">Download</a>
         </section>
 </body>
 </html>

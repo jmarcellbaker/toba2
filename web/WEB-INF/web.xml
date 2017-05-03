@@ -61,16 +61,17 @@
         <role-name>admin</role-name>
 </security-role>
 
- <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Protected Area</web-resource-name>
+<security-constraint>
+    <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
             <url-pattern>/admin/*</url-pattern>
-        </web-resource-collection>
+    </web-resource-collection>
       
-        <auth-constraint>
+    <auth-constraint>
             <role-name>admin</role-name>
-        </auth-constraint>
-    </security-constraint>
+    </auth-constraint>
+</security-constraint>
+
     <login-config>
     <auth-method>FORM</auth-method>
         <form-login-config>
@@ -82,5 +83,17 @@
 <session-config>
         <session-timeout>30</session-timeout>
 </session-config>
+
+<resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/toba</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+</resource-ref>
+
+<welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+        <welcome-file>reports.jsp</welcome-file>
+</welcome-file-list>
     
 </web-app>

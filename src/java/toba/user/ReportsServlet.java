@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +24,14 @@ import toba.user.UserDB;
 
 public class ReportsServlet extends HttpServlet {
     
-    @Override
+    UserDB userDB;
+    
+  @Override
     protected void doPost(HttpServletRequest request, 
             HttpServletResponse response)
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        
-        String url = "/reports.jsp";
         
         String action = request.getParameter("action");
         if (action == null) {
@@ -35,15 +39,20 @@ public class ReportsServlet extends HttpServlet {
         }
         
         if (action.equals("getReport")) {
-            List<User> users = UserDB.getUsers();
+            List<User> users = userDB.getUsers();
+            
             request.setAttribute("users", users);
-            session.setAttribute("user", users);
+            
+            RequestDispatcher dispatcher = 
+                    getServletContext()
+                    .getRequestDispatcher("admin/reports.jsp");
+            dispatcher.forward(request, response);
             
         }
         
-        getServletContext()
+        /*getServletContext()
                 .getRequestDispatcher(url)
-                .forward(request, response);
+                .forward(request, response);*/
     }
 
       @Override
@@ -52,5 +61,4 @@ public class ReportsServlet extends HttpServlet {
         
        doPost(request, response);
     }
-
 }
